@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Следующий уровень - Dandy's World</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="transitions.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .easter-egg-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e, #0f0f23);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .easter-egg-content {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+        
+        .easter-egg-title {
+            font-size: 2.5rem;
+            color: var(--accent-purple-light);
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #a78bfa, #c4b5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .easter-egg-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        
+        .image-button {
+            display: block;
+            margin: 2rem auto;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 15px;
+            border: 3px solid var(--accent-purple);
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+        }
+        
+        .image-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(139, 92, 246, 0.4);
+            border-color: var(--accent-purple-light);
+        }
+        
+        .image-caption {
+            margin-top: 1rem;
+            color: var(--accent-purple-light);
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+        
+        .secret-hint {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+        
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            .easter-egg-container {
+                padding: 10px;
+            }
+            
+            .easter-egg-content {
+                padding: 2rem 1.5rem;
+                margin: 0 10px;
+            }
+            
+            .easter-egg-title {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .easter-egg-text {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .image-button {
+                max-width: 250px;
+                margin: 1.5rem auto;
+            }
+            
+            .image-caption {
+                font-size: 0.8rem;
+            }
+            
+            .secret-hint {
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .easter-egg-content {
+                padding: 1.5rem 1rem;
+            }
+            
+            .easter-egg-title {
+                font-size: 1.8rem;
+            }
+            
+            .easter-egg-text {
+                font-size: 1rem;
+            }
+            
+            .image-button {
+                max-width: 200px;
+                margin: 1rem auto;
+            }
+            
+            .image-caption {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="easter-egg-container">
+        <div class="easter-egg-content">
+            <h1 class="easter-egg-title">🎮 Следующий уровень! 🎮</h1>
+            
+            <div class="easter-egg-text">
+                <p>Отлично! Ты прошёл первый уровень нашей пасхалки.</p>
+                <p>Теперь вместо обычной кнопки - загадочное изображение из мира Dandy's World.</p>
+                <p>Нажми на него, чтобы узнать, что скрывается за этой тайной...</p>
+            </div>
+            
+            <a href="birthday.html" class="image-button-link">
+                <img src="images/_3.jpg" 
+                     alt="Таинственное изображение Dandy's World" 
+                     class="image-button">
+            </a>
+            
+            <div class="image-caption">Нажми на изображение, чтобы открыть особое поздравление</div>
+            
+            <div class="secret-hint">
+                Ты приближаешься к разгадке всех секретов Dandy's World...
+            </div>
+        </div>
+    </div>
+    <script src="transitions.js"></script>
+</body>
+</html>

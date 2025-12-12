@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С Днём Рождения! - Dandy's World</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="transitions.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .birthday-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e, #0f0f23);
+            padding: 50px 20px;
+        }
+        
+        .birthday-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .birthday-title {
+            font-size: 3rem;
+            color: var(--accent-purple-light);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #a78bfa, #c4b5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .birthday-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+        
+        .congratulations-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            gap: 3rem;
+        }
+        
+        .congratulation-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .congratulation-item.reverse {
+            grid-template-columns: 1fr 1fr;
+            direction: rtl;
+        }
+        
+        .congratulation-item.reverse > * {
+            direction: ltr;
+        }
+        
+        .congratulation-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+        
+        .congratulation-text h3 {
+            color: var(--accent-purple-light);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        .congratulation-image {
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid var(--accent-purple);
+            transition: transform 0.3s ease;
+        }
+        
+        /* Специальные стили для видео */
+        video.congratulation-image {
+            max-width: 400px;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
+        }
+        
+        .congratulation-image:hover {
+            transform: scale(1.05);
+            border-color: var(--accent-purple-light);
+        }
+        
+        .birthday-footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .birthday-container {
+                padding: 30px 15px;
+            }
+            
+            .congratulation-item {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+            
+            .congratulation-item.reverse {
+                direction: ltr;
+            }
+            
+            .birthday-title {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+            
+            .birthday-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .congratulations-grid {
+                gap: 2rem;
+            }
+            
+            .congratulation-text {
+                font-size: 1rem;
+            }
+            
+            .congratulation-text h3 {
+                font-size: 1.3rem;
+            }
+            
+            .congratulation-image {
+                max-width: 250px;
+                height: 180px;
+            }
+            
+            video.congratulation-image {
+                max-width: 300px;
+                max-height: 250px;
+            }
+            
+            .birthday-footer {
+                margin-top: 3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .birthday-container {
+                padding: 20px 10px;
+            }
+            
+            .birthday-title {
+                font-size: 2rem;
+            }
+            
+            .birthday-subtitle {
+                font-size: 1rem;
+            }
+            
+            .congratulation-item {
+                padding: 1rem;
+                gap: 1rem;
+            }
+            
+            .congratulation-text {
+                font-size: 0.95rem;
+            }
+            
+            .congratulation-text h3 {
+                font-size: 1.2rem;
+            }
+            
+            .congratulation-image {
+                max-width: 200px;
+                height: 150px;
+            }
+            
+            video.congratulation-image {
+                max-width: 250px;
+                max-height: 200px;
+            }
+            
+            .congratulations-grid {
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .birthday-title {
+                font-size: 1.8rem;
+            }
+            
+            .congratulation-item {
+                padding: 0.8rem;
+            }
+            
+            .congratulation-image {
+                max-width: 180px;
+                height: 130px;
+            }
+            
+            video.congratulation-image {
+                max-width: 220px;
+                max-height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="birthday-container">
+        <div class="birthday-header">
+            <h1 class="birthday-title">🎂 С Днём Рождения! 🎂</h1>
+            <p class="birthday-subtitle">7 особенных поздравлений от Дедо</p>
+        </div>
+        
+        <div class="congratulations-grid">
+            <!-- 1. Текст слева, картинка справа -->
+            <div class="congratulation-item">
+                <div class="congratulation-text">
+                    <h3>🎉 Желаю счастья!</h3>
+                    <p>Пусть каждый день будет наполнен радостью и весельем, помнишь как ты только-только начинал учить меня играть в Dandy's World?</p>
+                </div>
+                <img src="images/Desktop Screenshot 2025.10.17 - 18.04.41.87.png" alt="Праздник в Dandy's World" class="congratulation-image">
+            </div>
+            
+            <!-- 2. Картинка слева, текст справа -->
+            <div class="congratulation-item reverse">
+                <div class="congratulation-text">
+                    <h3>🌟 Желаю здоровья!</h3>
+                    <p>А помнишь как встретили хэллоуин?</p>
+                </div>
+                <img src="images/Desktop Screenshot 2025.11.01 - 19.21.27.79.png" alt="Космическое приключение" class="congratulation-image">
+            </div>
+            
+            <!-- 3. Текст слева, картинка справа -->
+            <div class="congratulation-item">
+                <div class="congratulation-text">
+                    <h3>🎮 Ты - моя радость</h3>
+                    <p>Внуче, а помнишь как мы вместе бомбили?</p>
+                </div>
+                <img src="images/Desktop Screenshot 2025.11.14 - 00.08.04.33.png" alt="Дружба персонажей" class="congratulation-image">
+            </div>
+            
+            <!-- 4. Картинка слева, текст справа -->
+            <div class="congratulation-item reverse">
+                <div class="congratulation-text">
+                    <h3>🍰 Звёздочка моя</h3>
+                    <p>Пусть в этот день рождения ты будешь счастив так же, как я при игре с тобой!</p>
+                </div>
+                <img src="images/Desktop Screenshot 2025.11.14 - 00.14.53.82.png" alt="Кулинарные приключения" class="congratulation-image">
+            </div>
+            
+            <!-- 5. Текст слева, видео справа -->
+            <div class="congratulation-item">
+                <div class="congratulation-text">
+                    <h3>🎁 Люблю тебя, внучек</h3>
+                    <p>Пусть окружающие твердят, что не может быть у меня внука, а я буду верить в то, что у меня есть любимый внук, ведь ты смог доказать это!</p>
+                </div>
+                <video controls class="congratulation-image">
+                    <source src="images/video2025-12-12 00-02-06.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+            
+            <!-- 6. Картинка слева, текст справа -->
+            <div class="congratulation-item reverse">
+                <div class="congratulation-text">
+                    <h3>🌈 Желаю добра!</h3>
+                    <p>Ты уже такой взрослый, хоть мы и знакомы всего ничего. Помнишь как мы только начали общаться?</p>
+                </div>
+                <img src="images/Desktop Screenshot 2025.12.12 - 00.13.42.58.png" alt="Разноцветный мир" class="congratulation-image">
+            </div>
+            
+            <!-- 7. Только текст -->
+            <div class="congratulation-item">
+                <div class="congratulation-text" style="grid-column: 1 / -1; text-align: center;">
+                    <h3>🎊 С днём рождения!</h3>
+                    <p>Внуче, я очень горжусь тобой и желаю тебе всего самого наилучшего в этот особенный день! Пусть каждый твой день будет наполнен радостью, успехами и счастливыми моментами. С днём рождения! Я очегь люблю тебя. Ты у меня самый-самый лучший внук!</p>
+                </div>
+            </div>
+            
+
+        </div>
+        
+        <div class="birthday-footer">
+            <p>С любовью от Деда Марка❤️</p>
+        </div>
+    </div>
+    <script src="transitions.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+/* Плавные переходы между страницами */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+/* Анимация загрузки страницы */
+.page-enter {
+    animation: pageEnter 0.8s ease-out forwards;
+}
+
+.page-exit {
+    animation: pageExit 0.6s ease-in forwards;
+}
+
+/* Анимация входа страницы */
+@keyframes pageEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Анимация выхода страницы */
+@keyframes pageExit {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+}
+
+/* Эффект затемнения фона */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(15, 15, 35, 0.9), rgba(26, 26, 46, 0.9));
+    z-index: 9998;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none; /* Не блокирует взаимодействие когда неактивен */
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: auto; /* Блокирует взаимодействие только когда активен */
+}
+
+/* Анимация для контента страницы */
+.page-content {
+    animation: contentFadeIn 1s ease-out 0.3s both;
+}
+
+@keyframes contentFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Специальные эффекты для кнопок перехода */
+.transition-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.transition-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.transition-button:hover::before {
+    left: 100%;
+}
+
+/* Анимация для изображений при переходе */
+.congratulation-image,
+.image-button {
+    transition: all 0.5s ease;
+    animation: imagePopIn 0.8s ease-out 0.5s both;
+}
+
+@keyframes imagePopIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) rotate(-5deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+/* Анимация для текста */
+.congratulation-text {
+    animation: textSlideIn 0.8s ease-out 0.2s both;
+}
+
+@keyframes textSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.congratulation-item.reverse .congratulation-text {
+    animation: textSlideInReverse 0.8s ease-out 0.2s both;
+}
+
+@keyframes textSlideInReverse {
+    0% {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Задержки для последовательной анимации элементов */
+.congratulation-item:nth-child(1) .congratulation-text,
+.congratulation-item:nth-child(1) .congratulation-image {
+    animation-delay: 0.1s;
+}
+
+.congratulation-item:nth-child(2) .congratulation-text,
+.congratulation-item:nth-child(2) .congratulation-image {
+    animation-delay: 0.3s;
+}
+
+.congratulation-item:nth-child(3) .congratulation-text,
+.congratulation-item:nth-child(3) .congratulation-image {
+    animation-delay: 0.5s;
+}
+
+.congratulation-item:nth-child(4) .congratulation-text,
+.congratulation-item:nth-child(4) .congratulation-image {
+    animation-delay: 0.7s;
+}
+
+.congratulation-item:nth-child(5) .congratulation-text,
+.congratulation-item:nth-child(5) .congratulation-image {
+    animation-delay: 0.9s;
+}
+
+.congratulation-item:nth-child(6) .congratulation-text,
+.congratulation-item:nth-child(6) .congratulation-image {
+    animation-delay: 1.1s;
+}
+
+.congratulation-item:nth-child(7) .congratulation-text {
+    animation-delay: 1.3s;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .page-enter {
+        animation: pageEnterMobile 0.6s ease-out forwards;
+    }
+    
+    .page-exit {
+        animation: pageExitMobile 0.4s ease-in forwards;
+    }
+    
+    @keyframes pageEnterMobile {
+        0% {
+            opacity: 0;
+            transform: translateY(20px) scale(0.98);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+    
+    @keyframes pageExitMobile {
+        0% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(-20px) scale(0.98);
+        }
+    }
+    
+    .congratulation-text,
+    .congratulation-item.reverse .congratulation-text {
+        animation: textSlideInMobile 0.6s ease-out 0.2s both;
+    }
+    
+    @keyframes textSlideInMobile {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
